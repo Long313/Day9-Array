@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr = [-2, 4, 6, 10, -100];
+        // for(let i = 0; i < 10; i++){
+        //     let a = Math.floor(Math.random()*10); // tạo ra một mảng gồm 10 phẩn tử có giá trị ngẫu nhiên từ 0 đến 10;
+        //     arr.push(a);
+        // }
+        console.log(arr);
+        let max = 0;
+        for(let i=0; i< arr.length; i++){
+            if(arr[i] > max){
+                max = arr[i];
+            }
+        }
+        console.log("Giá trị lớn nhất trong mảng là: " + max);
+    </script>
+</body>
+</html>

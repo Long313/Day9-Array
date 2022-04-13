@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+    //   let myColor = ["Red", "Green", "White", "Black"],
+    //     str = "";
+    //   for (let i = 0; i < myColor.length; i++) {
+    //     if (i >= 1) {
+    //       str += ", ";
+    //     }
+    //     str += myColor[i];
+    //   }
+    //   console.log(str);
+    // //c2
+    // let a = myColor.join(",");
+    // console.log(a);
+    // //   // bài 2
+    //   let input = prompt("Nhập vào 1 dãy số");
+    //   let arr = [];
+    //   for (let i = 0; i < input.length; i++) {
+    //     arr[i] = Number(input[i]);
+    //   }
+    //   console.log(arr);
+    //   let str2 = "";
+    //   for (let j = 0; j < arr.length; j++) {
+    //     let preIndex = arr[j - 1];
+    //     let curIndex = arr[j];
+    //     if (preIndex %2 == 0 && curIndex %2 == 0) {
+    //       arr.splice(j,0,"-");
+    //     //   arr.splice(startIndex,0,"-")
+    //   }
+    // }
+    //   for(let index=0; index <arr.length;index++){
+    //       let a = arr[index]
+    //       a.toString();
+    //       str2 += a;
+    //   }
+    //   console.log(str2);
+      //bài 3
+    let b = "The Quick Brown Fox"
+    let array = b.split("");
+    console.log(array);
+    let str3 = "";
+    for(let j=0; j<array.length;j++){
+      if(array[j] != array[j].toUpperCase()){
+        array[j] = array[j].toUpperCase();
+      } else {
+        array[j] = array[j].toLowerCase();
+      }
+      str3 += array[j];
+    }
+    console.log(str3);
+    
+
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let n = parseInt(prompt("Nhập vào số phần tử tối đa của mảng"));
+        let input = parseFloat(prompt("Nhập vào giá trị cần kiểm tra"));
+        let arr = [];
+        for(let i=0; i < n; i++){
+            let a = Math.floor(Math.random()*10); 
+            arr.push(a);
+            
+            //Tạo ra một mảng gồm n phần tử với giá trị ngẫu nhiên của mỗi phần tử nằm trong khoảng từ 0-9;
+        }
+        console.log(arr);
+       
+        for(let j=0; j<arr.length;j++){
+            if(arr[j] == input){
+                console.log(input + " nằm trong mảng và vị trí là " + arr.indexOf(input));
+            }
+        }
+    </script>
+</body>
+</html>

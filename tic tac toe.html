@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game Caro Advance</title>
+    <style></style>
+  </head>
+  <body>
+    <h2>Game caro</h2>
+    <button id="play" onclick="beginPlay()">Play</button>
+    <div id="result"></div>
+    <script>
+      let result = document.getElementById("result");
+      let caro = [
+        [".", ".", ".", ".", "."],
+        [".", ".", ".", ".", "."],
+        [".", ".", ".", ".", "."],
+        [".", ".", ".", ".", "."],
+        [".", ".", ".", ".", "."]
+      ]
+      let str = "" ;
+      function beginPlay(){
+      for(var i=0; i<caro.length;i++){
+        for(var j=0; j<caro[i].length;j++){
+          str += `<input id=${i}${j} type=button onclick=change(this) value=${caro[i][j]}>`;
+        }
+        str+='<br>';
+      }
+      result.innerHTML = str;
+    }
+    let count = 1;
+      function change(obj){
+        console.log(count);
+          if(count %2 !=0){
+            obj.value = "X";
+            caro[`${i}`][`${j}`] = "X";
+          } else {
+            obj.value = "O";
+            caro[`${i}`][`${j}`] = "O";      
+          }
+          count ++;
+      }
+      // function caculator(){
+
+      // }
+      result.innerHTML = str;
+    </script>
+  </body>
+</html>
