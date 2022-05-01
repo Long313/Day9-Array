@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Type anything slowly</h2>
+    <form method="GET">
+        <textarea id="text" cols="50" rows="4" onkeydown="change()">
+        </textarea>
+      </form>
+    <script>
+        let arr = ["T", "h", "i", "s"," ", "i", "s", " ", "j", "u", "s", "t", " ", "a", " ", "j", "o", "k", "e"];
+        let count = 0;
+        let result = document.getElementById("text");
+        function change(){
+         let textArea = document.getElementById("text");
+         while(count < arr.length){
+            str = arr[count];
+            count ++;
+            result.innerText = str;
+         }
+         
+        }
+    </script>
+</body>
+</html>

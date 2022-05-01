@@ -24,7 +24,7 @@
       function beginPlay(){
       for(var i=0; i<caro.length;i++){
         for(var j=0; j<caro[i].length;j++){
-          str += `<input id=${i}${j} type=button onclick=change(this) value=${caro[i][j]}>`;
+          str += `<input id=${[i]}${[j]} type=button onclick=change(this) value=${caro[i][j]}>`;
         }
         str+='<br>';
       }
@@ -35,13 +35,12 @@
         console.log(count);
           if(count %2 !=0){
             obj.value = "X";
-            caro[`${i}`][`${j}`] = "X";
+          
           } else {
-            obj.value = "O";
-            caro[`${i}`][`${j}`] = "O";      
+            obj.value = "O";    
           }
           count ++;
-      }
+      } 
       // function caculator(){
 
       // }
