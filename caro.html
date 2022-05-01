@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .cell {
+        border: 1px solid blue;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="result"></div>
+    <script>
+      let caro = document.getElementById("result");
+      let str = "";
+      var array = [];
+      function createBoard() {
+        let top = 0;
+        let value = "";
+        for (var i = 0; i < 10; i++) {
+          let subArray = [];
+          let left = 0;
+          for (var j = 0; j < 10; j++) {
+            str +=
+              '<div id="cell-' +
+              i +
+              "-" +
+              j +
+              '"' +
+              'onclick="checkPosition(' +
+              i +
+              "," +
+              j +
+              ')"' +
+              'class="cell"' +
+              'style="position: absolute; width:40px; height:40px;' +
+              "left:" +
+              left +
+              "px; top:" +
+              top +
+              "px; " +
+              'line-height:40px;">' +
+              value +
+              "</div>";
+            left += 40;
+            subArray.push(value);
+          }
+          top += 40;
+          array.push(subArray);
+        }
+        // console.log(array);
+        caro.innerHTML = str;
+      }
+      createBoard();
+      var count = 1;
+      function checkPosition(x, y) {
+        let secondStr = "";
+        secondStr += "cell-" + x + "-" + y + "";
+        // console.log(secondStr);
+        if (count % 2 != 0) {
+          array[x][y] = "X";
+          document.getElementById(secondStr).innerHTML = "X";
+          console.log(x + ":" + y);
+        } else {
+          document.getElementById(secondStr).innerHTML = "O";
+          array[x][y] = "O";
+          console.log(x + ":" + y);
+        }
+        count++;
+        checkToEnd();
+      }
+      function playerXWinInRow() {
+        if (count % 2 != 0) {
+          a = "X";
+          for (let i = 0; i < array.length; i++) {
+            for (let j = 0; j < array[i].length; j++) {
+              if (
+                array[i][j] == a &&
+                array[i][j - 1] == a &&
+                array[i][j - 2] == a &&
+                array[i][j - 3] == a &&
+                array[i][j - 4] == a
+              ) {
+                alert('Người chơi "X" đã thắng');
+                break;
+              } else if (
+                array[i][j] == a &&
+                array[i][j + 1] == a &&
+                array[i][j + 2] == a &&
+                array[i][j + 3] == a &&
+                array[i][j + 4] == a
+              ) {
+                alert('Người chơi "X" đã thắng');
+                break;
+              } else if (
+                array[i][j] == a &&
+                array[i][j - 1] == a &&
+                array[i][j - 2] == a &&
+                array[i][j + 1] == a &&
+                array[i][j + 2] == a
+              ) {
+                alert('Người chơi "X" đã thắng');
+                break;
+              }
+            }
+          }
+        }
+      }
+      function playerOWinInRow() {
+        if (count % 2 == 0) {
+          a = "O";
+          for (let i = 0; i < array.length; i++) {
+            for (let j = 0; j < array[i].length; j++) {
+              if (
+                array[i][j] == a &&
+                array[i][j - 1] == a &&
+                array[i][j - 2] == a &&
+                array[i][j - 3] == a &&
+                array[i][j - 4] == a
+              ) {
+                alert('Người chơi "O" đã thắng');
+                break;
+              } else if (
+                array[i][j] == a &&
+                array[i][j + 1] == a &&
+                array[i][j + 2] == a &&
+                array[i][j + 3] == a &&
+                array[i][j + 4] == a
+              ) {
+                alert('Người chơi "O" đã thắng');
+                break;
+              } else if (
+                array[i][j] == a &&
+                array[i][j - 1] == a &&
+                array[i][j - 2] == a &&
+                array[i][j + 1] == a &&
+                array[i][j + 2] == a
+              ) {
+                alert('Người chơi "O" đã thắng');
+                break;
+              }
+            }
+          }
+        }
+      }
+      function playerXWinInDiagonal() {
+        if (count % 2 != 0) {
+          a = "X";
+          for (let i = 0; i < array.length; i++) {
+            for (let j = 0; j < array[i].length; j++) {
+              if (
+                array[i][j] == a &&
+                array[i - 1][j - 1] == a &&
+                array[i - 2][j - 2] == a &&
+                array[i - 3][j - 3] == a &&
+                array[i - 4][j - 4] == a
+              ) {
+                alert('Người chơi "X" đã thắng');
+                break;
+              } else if (
+                array[i][j] == a &&
+                array[i + 1][j + 1] == a &&
+                array[i + 2][j + 2] == a &&
+                array[i + 3][j + 3] == a &&
+                array[i + 4][j + 4] == a
+              ) {
+                alert('Người chơi "X" đã thắng');
+                break;
+              } else if (
+                array[i][j] == a &&
+                array[i - 1][j - 1] == a &&
+                array[i - 2][j - 2] == a &&
+                array[i + 1][j + 1] == a &&
+                array[i + 2][j + 2] == a
+              ) {
+                alert('Người chơi "X" đã thắng');
+                break;
+              }
+            }
+          }
+        }
+      }
+      function playerOWinInDiagonal() {
+        if (count % 2 != 0) {
+          a = "O";
+          for (let i = 0; i < array.length; i++) {
+            for (let j = 0; j < array[i].length; j++) {
+              if (
+                array[i][j] == a &&
+                array[i - 1][j - 1] == a &&
+                array[i - 2][j - 2] == a &&
+                array[i - 3][j - 3] == a &&
+                array[i - 4][j - 4] == a
+              ) {
+                alert('Người chơi "O" đã thắng');
+                break;
+              } else if (
+                array[i][j] == a &&
+                array[i + 1][j + 1] == a &&
+                array[i + 2][j + 2] == a &&
+                array[i + 3][j + 3] == a &&
+                array[i + 4][j + 4] == a
+              ) {
+                alert('Người chơi "O" đã thắng');
+                break;
+              } else if (
+                array[i][j] == a &&
+                array[i - 1][j - 1] == a &&
+                array[i - 2][j - 2] == a &&
+                array[i + 1][j + 1] == a &&
+                array[i + 2][j + 2] == a
+              ) {
+                alert('Người chơi "O" đã thắng');
+                break;
+              }
+            }
+          }
+        }
+      }
+      function playerXWinInColum(){
+        if (count % 2 != 0) {
+          a = "X";
+          for (let i = 0; i < array.length; i++) {
+            for (let j = 0; j < array[i].length; j++) {
+              if (
+                array[i][j] == a &&
+                array[i-1][j] == a &&
+                array[i-2][j] == a &&
+                array[i-3][j] == a &&
+                array[i-4][j] == a
+              ) {
+                alert('Người chơi "X" đã thắng');
+                break;
+              } else if (
+                array[i][j] == a &&
+                array[i+1][j] == a &&
+                array[i+2][j] == a &&
+                array[i-1][j] == a &&
+                array[i-2][j] == a
+              ) {
+                alert('Người chơi "X" đã thắng');
+                break;
+              } else if (
+                array[i][j] == a &&
+                array[i+1][j] == a &&
+                array[i+2][j] == a &&
+                array[i+3][j] == a &&
+                array[i+4][j] == a
+              ) {
+                alert('Người chơi "X" đã thắng');
+                break;
+              }
+            }
+          }
+        }
+      }
+      function playerOWinInColum(){
+        if (count % 2 != 0) {
+          a = "O";
+          for (let i = 0; i < array.length; i++) {
+            for (let j = 0; j < array[i].length; j++) {
+              if (
+                array[i][j] == a &&
+                array[i-1][j] == a &&
+                array[i-2][j] == a &&
+                array[i-3][j] == a &&
+                array[i-4][j] == a
+              ) {
+                alert('Người chơi "O" đã thắng');
+                break;
+              } else if (
+                array[i][j] == a &&
+                array[i+1][j] == a &&
+                array[i+2][j] == a &&
+                array[i-1][j] == a &&
+                array[i-2][j] == a
+              ) {
+                alert('Người chơi "O" đã thắng');
+                break;
+              } else if (
+                array[i][j] == a &&
+                array[i+1][j] == a &&
+                array[i+2][j] == a &&
+                array[i+3][j] == a &&
+                array[i+4][j] == a
+              ) {
+                alert('Người chơi "O" đã thắng');
+                break;
+              }
+            }
+          }
+        }
+      }
+      function checkToEnd() {
+        let a = "";
+        playerXWinInRow();
+        playerOWinInRow();
+        playerXWinInDiagonal();
+        playerOWinInDiagonal();
+        playerXWinInColum();
+        playerOWinInColum();
+      }
+    </script>
+  </body>
+</html>
